@@ -296,9 +296,12 @@ initDb()
     if (!process.env.JWT_SECRET) {
       throw new Error("JWT_SECRET is required.");
     }
-    app.listen(port, () => console.log(`Team Task Manager running on port ${port}`));
+    app.listen(port, "0.0.0.0", () => {
+      console.log(`Team Task Manager running on 0.0.0.0:${port}`);
+    });
   })
   .catch((error) => {
-    console.error("Startup failed:", error);
+    console.error("Startup failed:", error.message);
+    console.error(error);
     process.exit(1);
   });
