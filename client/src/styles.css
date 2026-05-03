@@ -1,0 +1,445 @@
+:root {
+  color: #1d2428;
+  background: #f6f4ef;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.auth-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    linear-gradient(rgba(246, 244, 239, 0.78), rgba(246, 244, 239, 0.9)),
+    url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80") center/cover;
+}
+
+.auth-panel {
+  width: min(460px, 100%);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #ded8cc;
+  border-radius: 8px;
+  padding: 28px;
+  box-shadow: 0 24px 70px rgba(45, 45, 38, 0.18);
+}
+
+.brand-lockup,
+.sidebar-head,
+.panel-title,
+.metric,
+.task-card-head,
+.member-row,
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-lockup h1,
+.topbar h1 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.brand-lockup p,
+.topbar p,
+.muted {
+  margin: 4px 0 0;
+  color: #687174;
+}
+
+.mode-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 24px 0;
+  border: 1px solid #d6d9d5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mode-toggle button {
+  border: 0;
+  padding: 10px;
+  background: #f8f8f5;
+  color: #515a5d;
+}
+
+.mode-toggle button.active {
+  background: #23443c;
+  color: #fff;
+}
+
+.stack,
+.project-create,
+.task-form {
+  display: grid;
+  gap: 14px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: #4d5759;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  border: 1px solid #d4d8d3;
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #1d2428;
+  background: #fff;
+}
+
+textarea {
+  min-height: 82px;
+  resize: vertical;
+}
+
+.primary,
+.ghost,
+.icon-button {
+  border: 0;
+  border-radius: 8px;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 800;
+}
+
+.primary {
+  background: #23443c;
+  color: #fff;
+  padding: 0 16px;
+}
+
+.ghost {
+  background: #edf0eb;
+  color: #293332;
+  padding: 0 14px;
+}
+
+.icon-button {
+  width: 42px;
+  flex: 0 0 42px;
+  background: #ecf0eb;
+  color: #2a3b37;
+}
+
+.danger {
+  color: #9d2727;
+}
+
+.error {
+  color: #b42318;
+  background: #fff0ee;
+  border: 1px solid #ffc9c2;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 310px 1fr;
+}
+
+.sidebar {
+  background: #fbfaf7;
+  border-right: 1px solid #ddd8ce;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-head strong,
+.sidebar-head span {
+  display: block;
+}
+
+.sidebar-head span,
+.project-list small,
+.member-row span,
+.task-card small {
+  color: #667175;
+}
+
+.project-list {
+  display: grid;
+  gap: 8px;
+  overflow: auto;
+}
+
+.project-list button {
+  text-align: left;
+  padding: 12px;
+  border: 1px solid #e1ded6;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.project-list button.selected {
+  border-color: #23443c;
+  background: #eef6f1;
+}
+
+.project-list span,
+.project-list small {
+  display: block;
+}
+
+.logout {
+  margin-top: auto;
+}
+
+.workspace {
+  padding: 28px;
+  overflow: auto;
+}
+
+.project-view {
+  display: grid;
+  gap: 22px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.eyebrow,
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  border-radius: 999px;
+  padding: 0 10px;
+  background: #e0ece4;
+  color: #23443c;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.metric,
+.panel,
+.task-column,
+.empty-state {
+  border: 1px solid #ded8cc;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.metric {
+  padding: 16px;
+  align-items: flex-start;
+}
+
+.metric svg {
+  color: #b45f39;
+}
+
+.metric span,
+.metric strong {
+  display: block;
+}
+
+.metric strong {
+  font-size: 1.8rem;
+}
+
+.metric.wide {
+  grid-column: span 1;
+}
+
+.mini-bars {
+  display: grid;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.mini-bars div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 18px;
+}
+
+.panel {
+  padding: 18px;
+}
+
+.panel h2,
+.task-column h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.inline-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 130px 42px;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.member-list {
+  display: grid;
+  gap: 10px;
+}
+
+.member-row {
+  border-top: 1px solid #ece8df;
+  padding-top: 10px;
+}
+
+.member-row div {
+  min-width: 0;
+  flex: 1;
+}
+
+.member-row strong,
+.member-row span {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.task-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.task-column {
+  padding: 14px;
+  min-height: 360px;
+}
+
+.task-stack {
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.task-card {
+  border: 1px solid #e1ded6;
+  border-left: 5px solid #87918d;
+  border-radius: 8px;
+  padding: 14px;
+  background: #fffdfa;
+  display: grid;
+  gap: 10px;
+}
+
+.task-card h3,
+.task-card p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.task-card p {
+  color: #596367;
+}
+
+.priority-low {
+  border-left-color: #668f71;
+}
+
+.priority-medium {
+  border-left-color: #c28a2e;
+}
+
+.priority-high {
+  border-left-color: #c84d3f;
+}
+
+.task-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #4e5b5d;
+  font-weight: 800;
+  font-size: 0.86rem;
+}
+
+.empty-state {
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 24px;
+}
+
+@media (max-width: 1040px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    border-right: 0;
+    border-bottom: 1px solid #ddd8ce;
+  }
+
+  .metric-grid,
+  .content-grid,
+  .task-board {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .workspace,
+  .sidebar,
+  .auth-shell {
+    padding: 16px;
+  }
+
+  .inline-form,
+  .form-row {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .auth-panel {
+    padding: 20px;
+  }
+}
