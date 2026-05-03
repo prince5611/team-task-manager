@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently \"nodemon server/index.js\" \"vite client --host 0.0.0.0\"",
     "server": "node server/index.js",
-    "build": "vite build client",
+    "build": "vite build client --outDir ../dist --emptyOutDir",
     "start": "node server/index.js"
   },
   "dependencies": {
