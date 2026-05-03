@@ -9,6 +9,8 @@ require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 5000;
+let dbReady = false;
+let dbStartupError = null;
 
 app.use(cors());
 app.use(express.json());
@@ -24,7 +26,11 @@ function cleanUser(user) {
 }
 
 app.get("/api/health", (req, res) => {
-  res.json({ ok: true });
+  res.json({
+    ok: true,
+    dbReady,
+    dbError: dbStartupError ? dbStartupError.message : null
+  });
 });
 
 app.post("/api/auth/signup", async (req, res) => {
@@ -291,17 +297,22 @@ app.use((error, req, res, next) => {
   res.status(500).json({ message: "Unexpected server error." });
 });
 
-initDb()
-  .then(() => {
-    if (!process.env.JWT_SECRET) {
-      throw new Error("JWT_SECRET is required.");
-    }
-    app.listen(port, "0.0.0.0", () => {
-      console.log(`Team Task Manager running on 0.0.0.0:${port}`);
+if (!process.env.JWT_SECRET) {
+  throw new Error("JWT_SECRET is required.");
+}
+
+app.listen(port, "0.0.0.0", () => {
+  console.log(`Team Task Manager running on 0.0.0.0:${port}`);
+  initDb()
+    .then(() => {
+      dbReady = true;
+      dbStartupError = null;
+      console.log("Database initialized.");
+    })
+    .catch((error) => {
+      dbReady = false;
+      dbStartupError = error;
+      console.error("Database initialization failed:", error.message);
+      console.error(error);
     });
-  })
-  .catch((error) => {
-    console.error("Startup failed:", error.message);
-    console.error(error);
-    process.exit(1);
-  });
+});
